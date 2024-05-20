@@ -1,0 +1,9 @@
+import = ["/home/fayez/.config/alacritty/themes/themes/nord.toml"]
+
+[window]
+opacity = 0.90
+
+[window.dimensions]
+columns = 125
+lines = 37
+
