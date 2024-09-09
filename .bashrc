@@ -245,9 +245,9 @@ createProject()
         return
     fi
 
-    mkdir -p "$1"/{build,src/include/}
+    mkdir -p "$1"/{build,src/include/"$1"}
     cd "$1"
-    createFiles main.cpp Makefile 0
+    touch main.cpp Makefile
 
     echo -e \
 """
@@ -290,7 +290,7 @@ source_ros()
 {
     source /opt/ros/humble/setup.bash
     source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
-    ROS_DOMAIN_ID=0
+    export ROS_DOMAIN_ID=1
 }
 
 tmuxn()
