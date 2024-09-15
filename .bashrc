@@ -245,7 +245,7 @@ createProject()
         return
     fi
 
-    mkdir -p "$1"/{build,src/include/"$1"}
+    mkdir -p "$1"/{build,src,include/"$1"}
     cd "$1"
     touch main.cpp Makefile
 
@@ -256,7 +256,7 @@ CXX=g++
 CPPFLAGS=-I\$(include_dir)
 build_dir = ./build
 src_dir = ./src
-include_dir = \$(src_dir)/include
+include_dir = ./include
 srcs = \$(shell find ./ -type f -name '*.cpp' )
 objs = \$(srcs:.cpp=.o)
 
