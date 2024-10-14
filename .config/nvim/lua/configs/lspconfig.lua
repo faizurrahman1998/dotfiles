@@ -1,35 +1,24 @@
--- EXAMPLE 
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+-- load defaults i.e lua_lsp
+require("nvchad.configs.lspconfig").defaults()
 
--- local lspconfig = require "lspconfig"
-local servers = {
-  clangd = {},
-  pyright = {
-    settings = {
-      python = {
-        analysis = {
-          autoSearchPaths = true,
-          typeCheckingMode = "basic",
-        },
-      },
-    },
-  },
-}
+local lspconfig = require "lspconfig"
+
+-- EXAMPLE
+local servers = { "clangd", "clang-format", "pyright", "lua-language-server" }
+local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
--- for _, lsp in ipairs(servers) do
---   lspconfig[lsp].setup {
---     on_attach = on_attach,
---     on_init = on_init,
---     capabilities = capabilities,
---   }
--- end
-for name, opts in pairs(servers) do
-  opts.on_init = on_init
-  opts.on_attach = on_attach
-  opts.capabilities = capabilities
-
-  require("lspconfig")[name].setup(opts)
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
+  }
 end
+
+-- configuring single server, example: typescript
+-- lspconfig.ts_ls.setup {
+--   on_attach = nvlsp.on_attach,
+--   on_init = nvlsp.on_init,
+--   capabilities = nvlsp.capabilities,
+-- }

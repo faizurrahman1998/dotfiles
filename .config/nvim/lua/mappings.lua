@@ -2,7 +2,7 @@ require "nvchad.mappings"
 
 -- add yours here
 local options = {
-  noremap = true,
+  noremap = true, 
   silent = true
 }
 
