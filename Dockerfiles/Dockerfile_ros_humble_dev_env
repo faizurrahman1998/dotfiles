@@ -1,4 +1,5 @@
-FROM microros/esp-idf-microros 
+FROM osrf/ros:humble-desktop-full
+
 
 # Basic Installs
 RUN apt-get update && apt upgrade -y \
@@ -25,11 +26,11 @@ ENV HOME=/home/$USER
 ENV XDG_RUNTIME_DIR=/tmp/runtime-$USER
 
 # Adding user and createing home and adding user to sudoers group
-# RUN groupadd --gid $UID $USER \
-#     && useradd -s /bin/bash --uid $UID --gid $UID -m $USER \ 
-RUN mkdir /home/$USER/.config && chown $USER:$UID /home/$USER/.config 
-    # && echo $USER ALL=\(ALL\) NOPASSWD: ALL > /etc/sudoers.d/$USER \
-    # && chmod 0440 /etc/sudoers.d/$USER
+RUN groupadd --gid $UID $USER \
+    && useradd -s /bin/bash --uid $UID --gid $UID -m $USER \ 
+    && mkdir /home/$USER/.config && chown $USER:$UID /home/$USER/.config \
+    && echo $USER ALL=\(ALL\) NOPASSWD: ALL > /etc/sudoers.d/$USER \
+    && chmod 0440 /etc/sudoers.d/$USER
 
 SHELL ["/bin/bash", "-c"]
 WORKDIR /home/$USER
