@@ -38,7 +38,7 @@ WORKDIR /home/$USER
 USER $USER 
 
 # Source install neovim and alacritty 
-RUN (mkdir dotfiles && cd dotfiles && git clone https://github.com/unipolarautomation/dotfiles_uatech.git .)\
+RUN (mkdir dotfiles && cd dotfiles && git clone https://github.com/faizurrahman1998/unipolarautomation/dotfiles.git .)\
     && (rm .bashrc && cd dotfiles && stow . && source ./../.bashrc && source /etc/profile.d/bash_completion.sh) \
     && git clone https://github.com/alacritty/alacritty-theme /home/$USER/.config/alacritty/themes \
     && git clone https://github.com/tmux-plugins/tpm /home/$USER/.tmux/plugins/tpm \
@@ -56,10 +56,10 @@ RUN (curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y\
     && rm -rf gitclones
 
 
-
+# to build the image
 # docker image build --build-arg UID=$UID --build-arg USER=$USER -t gcc_dev_env .
 
-
+# to make a container 
 # docker run -it --name sfml_cont --hostname sfml_cont.uatech --user $USER \
 # --volume /tmp/.X11-unix:/tmp/.X11-unix:rw --env=DISPLAY \
 # --volume /usr/share/fonts:/usr/share/fonts \
