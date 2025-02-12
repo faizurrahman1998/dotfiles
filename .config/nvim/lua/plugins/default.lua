@@ -13,6 +13,15 @@ return {
     },
 
     {
+        "neovim/nvim-lspconfig",
+        opts = {
+            inlay_hints = {
+                enabled = false
+            }
+        }
+    },
+
+    {
         "nvim-tree/nvim-tree.lua",
         version = "*",
         lazy = false,
