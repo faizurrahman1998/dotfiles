@@ -48,7 +48,8 @@ RUN (mkdir dotfiles && cd dotfiles && git clone https://github.com/faizurrahman1
 
 RUN mkdir gitclones && (cd gitclones \
     && git clone https://github.com/neovim/neovim \
-    && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo \
+    && cd neovim && git checkout stable \
+    && make CMAKE_BUILD_TYPE=Release \
     && sudo make install) 
 
 RUN (curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y\
