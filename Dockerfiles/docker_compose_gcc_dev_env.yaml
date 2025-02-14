@@ -1,0 +1,16 @@
+services:
+  cpp_dev_env:
+    image: cpp_dev_env
+    container_name: cpp_dev_env_cont
+    network_mode: host
+    user: fayez
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /home/fayez/Bugs/Cpp/:/home/fayez/Bugs/Cpp:rw
+      - /dev:/dev
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /usr/share/fonts/:/usr/share/fonts/
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash"]
