@@ -1,7 +1,7 @@
 services:
-  cpp_dev_env:
-    image: cpp_dev_env
-    container_name: cpp_dev_env_cont
+  gcc_dev_env:
+    image: gcc_dev_env
+    container_name: gcc_dev_env_cont
     network_mode: host
     user: fayez
     environment:

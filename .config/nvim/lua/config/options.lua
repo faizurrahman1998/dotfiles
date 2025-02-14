@@ -16,3 +16,4 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 0
+vim.o.rnu = false
