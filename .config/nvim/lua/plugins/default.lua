@@ -7,6 +7,7 @@
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
+
     {
         "danymat/neogen",
         config = true,
@@ -56,6 +57,7 @@ return {
         ---@type snacks.Config
         opts = {
             explorer = {
+                enabled = false
                 -- your explorer configuration comes here
                 -- or leave it empty to use the default settings
                 -- refer to the configuration section below

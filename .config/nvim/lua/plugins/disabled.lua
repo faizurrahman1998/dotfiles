@@ -7,4 +7,8 @@ return {
         "mini.ai",
         enabled = false,
     },
+    -- {
+    --     "bufferline.nvim",
+    --     enabled = false,
+    -- },
 }
