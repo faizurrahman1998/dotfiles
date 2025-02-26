@@ -1,6 +1,21 @@
 return {
     -- Lua
     {
+        'nvim-focus/focus.nvim',
+        event = "winEnter",
+        version = '*',
+        opts = {
+            enabled = true,
+            autoresize = {
+                width = 130,
+                height = 30,
+                minwidth = 20,
+                minheight = 10
+            }
+        }
+    },
+
+    {
         "folke/persistence.nvim",
         event = "BufReadPre", -- this will only start session saving when an actual file was opened
         opts = {
